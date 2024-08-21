@@ -6,10 +6,10 @@
              BackgroundColor="{DynamicResource LocalBackgroundColor}">
     
     <ContentPage.Resources>
-        <x:String x:Key="StaticUsername">Juan Dela Cruz</x:String>
-        <x:String x:Key="DynamicUsername">Click the button!</x:String>
-        <Color x:Key="DynamicBoxColor">Blue</Color>
-        <Color x:Key="LocalBackgroundColor">LightYellow</Color>
+        <x:String x:Key="StaticText">Welcome to the application!</x:String>
+        <x:String x:Key="DynamicText">Click the button to update this text.</x:String>
+        <Color x:Key="DynamicBoxColor">Orange</Color>
+        <Color x:Key="LocalBackgroundColor">#3A1078</Color>
 
     </ContentPage.Resources>
 
@@ -18,17 +18,22 @@
             Padding="30, 20"
             Spacing="25">
 
-            <Label Text="{Binding Firstname}"
-                   TextColor="{Binding ColorRed}"/>
+            <Label Text="{Binding WelcomeText}"
+                   TextColor="{Binding ColorText}"
+                   FontSize="Title"/>
+            
+            <Label Text="{local:CurrentDateExtension}"
+                   Margin="0,-25,0,0"/>
 
             <Label x:Name="StaticResourceLabel" 
-                   Text="{StaticResource StaticUsername}"/>
-
+                   Text="{StaticResource StaticText}"/>
+            
             <Button Text="Change Label Name - Static"
                     Clicked="OnChangedLabelNameStatic"/>
 
             <Label x:Name="DynamicResourceLabel"
-                   Text="{DynamicResource DynamicUsername}"/>
+                   Text="{DynamicResource DynamicText}"/>
+
 
             <Button Text="Change Label Name - Dynamic"
                     Clicked="OnChangedLabelNameDynamic"/>
@@ -36,20 +41,19 @@
             <Button Text="Change Background Color to Green"
                     Clicked="OnChangedBackgroundColorGreen"/>
 
-            <Button Text="Change Background Color to Light Green"
-                    Clicked="OnChangedBackgroundColorLightGreen"/>
+            <Button Text="Change Background Color to Blue"
+                    Clicked="OnChangedBackgroundColorBlue"/>
 
-            <BoxView HeightRequest="100"
-                     WidthRequest="100"
+            <BoxView HeightRequest="200"
+                     WidthRequest="200"
                      Color="{DynamicResource DynamicBoxColor}"/>
 
             <Button Text="Change BoxView Color"
                     Clicked="OnChangedBoxViewColor"/>
 
-            <Label Text="{local:CurrentDateExtension}"/>
-
             <Entry x:Name="MyEntry"
                    Placeholder="Type here..."
+                   PlaceholderColor="LightGray"
                    Text="{Binding Text, Source{x:Reference MyEntry}}"/>
             
             <Label Text="{Binding Source={x:Reference MyEntry}, Path=Text}"/>

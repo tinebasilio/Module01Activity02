@@ -2,41 +2,42 @@
 {
     public partial class MainPage : ContentPage
     {
-        public string Firstname { get; set; }
-        public Color ColorRed { get; set; }
+        public string WelcomeText { get; set; }
+        public Color ColorText { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
 
-            Firstname = "Welcome to .NET MAUI Markup Extension!";
-            ColorRed = Colors.Red;
+            WelcomeText = ".NET MAUI Markup Extensions";
+            ColorText = Colors.GreenYellow;
+
 
             this.BindingContext = this;
         }
         
         private void OnChangedLabelNameStatic(object sender, EventArgs e)
         {
-            this.Resources["StaticUsername"] = "Peter Butter";
+            this.Resources["StaticText"] = "";
 
         }
         private void OnChangedLabelNameDynamic(object sender, EventArgs e)
         {
-            this.Resources["DynamicUsername"] = "Amazing!";
+            this.Resources["DynamicText"] = "Great!";
         }
 
         private void OnChangedBackgroundColorGreen(object sender, EventArgs e)
         {
-            this.Resources["LocalBackgroundColor"] = Colors.Green;
+            this.Resources["LocalBackgroundColor"] = Colors.DarkOliveGreen;
         }
 
-        private void OnChangedBackgroundColorLightGreen(object sender, EventArgs e)
+        private void OnChangedBackgroundColorBlue(object sender, EventArgs e)
         {
-            this.Resources["LocalBackgroundColor"] = Colors.LightGreen;
+            this.Resources["LocalBackgroundColor"] = Colors.Teal;
         }
         private void OnChangedBoxViewColor(object sender, EventArgs e)
         {
-            this.Resources["DynamicBoxColor"] = Colors.SkyBlue;
+            this.Resources["DynamicBoxColor"] = Colors.Red;
         }
     }
 
